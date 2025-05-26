@@ -21,14 +21,22 @@
   text-shadow: 0 0 10px #ff00ff, 
                0 0 20px #00ffff;
 }
+    #bgMusic {
+      display: none;
+    }
   </style>
 </head>
-<body>
+<body onclick="document.getElementById('bgMusic').play()">
+  <audio id="bgMusic" loop>
+    <source src="background-music.mp3" type="audio/mpeg">
+    您的浏览器不支持音频元素
+  </audio>
   <h1>欢迎来到我的网站</h1>
   <p>🔗 示例链接：<a href="https://github.com">访问GitHub</a></p>
   <p>请看热情好客的小猫↓</p>
   <img src="my-photo.jpg" alt="占位图片" width="400">
   <p>应好闺闺要求，把她女儿照片放在这里↓</p>
   <img src="my-photo2.jpg" alt="占位图片" width="400">
+  <p>我是一个技术的探索小白</p>
 </body>
 </html>
