@@ -24,13 +24,22 @@
     #bgMusic {
       display: none;
     }
+    #musicBtn {
+      background: #4CAF50;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px 0;
+    }
   </style>
 </head>
-<body onclick="document.getElementById('bgMusic').play()">
+<body>
   <audio id="bgMusic" loop>
     <source src="background-music.mp3" type="audio/mpeg">
-    您的浏览器不支持音频元素
   </audio>
+  <button id="musicBtn">🎵 点击开启背景音乐</button>
   <h1>欢迎来到我的网站</h1>
   <p>🔗 示例链接：<a href="https://github.com">访问GitHub</a></p>
   <p>请看热情好客的小猫↓</p>
@@ -38,5 +47,19 @@
   <p>应好闺闺要求，把她女儿照片放在这里↓</p>
   <img src="my-photo2.jpg" alt="占位图片" width="400">
   <p>我是一个技术的探索小白</p>
+
+  <script>
+    document.getElementById('musicBtn').addEventListener('click', function() {
+      const music = document.getElementById('bgMusic');
+      music.play();
+      this.textContent = music.paused ? '🎵 点击播放音乐' : '🎵 音乐播放中';
+    });
+    
+    // 尝试在用户首次交互时自动播放（可选）
+    document.addEventListener('click', function firstPlay() {
+      document.getElementById('bgMusic').play();
+      document.removeEventListener('click', firstPlay);
+    });
+  </script>
 </body>
 </html>
